@@ -52,17 +52,13 @@
         }
 
         .mycards {
-            width: 1200px;
+            width: 1000px; 
             margin: 30px auto 0px auto;
-        }
-
-        .mypostingbox {
-            width: 500px;
-            margin: 30px auto 0px auto;
+            box-shadow: 0px 0px 3px 0px rgb(255, 157, 0);
             padding: 20px;
-            box-shadow: 0px 0px 3px 0px blue;
             border-radius: 5px;
         }
+
 
         .mybtn {
             display: flex;
@@ -124,44 +120,22 @@
         </div>
 
     </div>
-    <div class="mypostingbox" id="postingbox">
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="image" placeholder="앨범 이미지">
-            <label for="floatingInput">앨범이미지</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="title" placeholder="앨범 제목">
-            <label for="floatingInput">앨범제목</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="content" placeholder="앨범 내용">
-            <label for="floatingInput">앨범내용</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="date" placeholder="앨범 날짜">
-            <label for="floatingInput">앨범날짜</label>
-        </div>
-        <div class="mybtn">
-            <button onclick="makeCard()" type="button" class="btn btn-dark">수정하기</button>
-            <button type="button" class="btn btn-outline-dark">제거하기</button>
-        </div>
-    </div>
     ><div class="mycards">
         <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
-                        class="card-img-top" alt="...">
+            <div class="card mb-3" style="width: 100%;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">앨범제목</h5>
-                        <p class="card-text">앨범내용</p>
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">앨범날짜</small>
-                    </div>
+                  </div>
                 </div>
-            </div>
-
+              </div>
 
         </div>
 
