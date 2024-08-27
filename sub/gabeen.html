@@ -16,9 +16,26 @@
             font-family: "Nanum Pen Script", cursive;
         }
 
+        .box {
+            width: 150px;
+            height: 150px;
+            border-radius: 70%;
+            overflow: hidden;
+            position: absolute;
 
-        .mytitle {
-            height: 250px;
+           
+            top: 10px;
+            z-index: 10;
+        }
+
+        .profile {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .myname {
+            height: 260px;
 
             color: black;
 
@@ -30,8 +47,16 @@
             background-color: antiquewhite;
             background-position: center;
             background-size: cover;
+
+            
+          
+            z-index: 1;
         }
 
+        .mycards {
+            width: 1200px;
+            margin: 30px auto 0px auto;
+        }
 
         .mypostingbox {
             width: 500px;
@@ -93,9 +118,12 @@
 </head>
 
 <body>
-    <div class="mytitle">
-        <h1>김가빈</h1>
+    <div class="myname">
+        <h1>김00</h1>
         <p>오늘의 기분은? <span id="msg">나쁨</span></p>
+        <div class="box" style="background: #BDBDBD;">
+            <img class="profile" src=...>
+        </div>
 
     </div>
     <div class="mypostingbox" id="postingbox">
@@ -120,7 +148,27 @@
             <button type="button" class="btn btn-outline-dark">제거하기</button>
         </div>
     </div>
-    
+    ><div class="mycards">
+        <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">앨범제목</h5>
+                        <p class="card-text">앨범내용</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">앨범날짜</small>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
 </body>
