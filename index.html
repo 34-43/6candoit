@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>6조 육캔두잇 소개 페이지(임시)</title>
     <style>
+        :root {
+            --color-bg--: #F7EFE5;
+            --color-banner--: #C8A1E0;
+            --color-primary--:#E2BFD9;
+            --color-text--:#674188;
+        }
+
         .noto-sans-kr-6candoit {
             font-family: "Noto Sans KR", sans-serif;
             font-optical-sizing: auto;
@@ -17,9 +24,11 @@
         }
 
         body {
-            background-color: #53ca43;
-            padding-left: 30vw;
-            padding-right: 30vw;
+            background-color: var(--color-bg--);
+            color: var(--color-text--);
+            max-width: 900px;
+            margin:auto;
+            padding:30px;
         }
 
         p {
@@ -28,22 +37,56 @@
         }
 
         .card {
-            background-color: white;
+            background-color: var(--color-primary--);
             opacity: 60%;
             padding: 30px;
             border-radius: 15px; 
+        }
+        .card-team-info {
+            list-style: none; 
+            padding: 15px;
+            background-color:var(--color-primary--);
+            border-radius: 15px;
+            width: 200px;
+            min-height: 300px;
+            box-shadow: black;
+        }
+        .sub-btn {
+            margin:20px;
+            padding:10px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 3px rgb(112, 112, 112);
+            background-color: var(--color-primary--);
+            width: 100px;
         }
     </style>
 </head>
 
 <body>
     <div class="card noto-sans-kr-6candoit">
-        <h1 style="padding-bottom: 10px">임시로 만든 페이지</h1>
-        <p>
-            이후에 처음으로 작업하시는 분은 이 페이지 덮어쓰셔도 되고, 여기에 추가하셔도 됩니다.
-            개발 시작하기 전에, 이 페이지를 브라우저에서 열람하는 것이 가능한지 확인 한번 해보세요
-        </p>
+        <h1 style="position:absolute; margin-top: 0; font-style: italic; font-size: 100px; opacity: 20%;">6 Can Do It!</h1>
+        <h1 style="padding-bottom: 10px">6팀</h1><h1 style="margin:0; padding:0; font-size:90px; text-align: right;">육캔두잇</h1>
     </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non et debitis consectetur? Officia eveniet velit magni commodi fugit facilis exercitationem? Minus laudantium tempora et eligendi quis aut ab, ipsum totam!
+    </p>
+    <div style="display:flex; justify-content: space-between;">
+        <li class="card-team-info">
+            <h1 style="text-align: center;">title</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit architecto! Aut quam delectus libero velit! Illum sed, optio distinctio dicta perspiciatis, voluptas laudantium, voluptatum ex fugiat eveniet sunt possimus!
+        </li>
+        <li class="card-team-info">
+            <h1 style="text-align: center;">title</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit architecto! Aut quam delectus libero velit! Illum sed, optio distinctio dicta perspiciatis, voluptas laudantium, voluptatum ex fugiat eveniet sunt possimus!
+        </li>
+        <li class="card-team-info">
+            <h1 style="text-align: center;">title</h1>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit architecto! Aut quam delectus libero velit! Illum sed, optio distinctio dicta perspiciatis, voluptas laudantium, voluptatum ex fugiat eveniet sunt possimus!
+        </li>
+    </div>
+
+    <button class="sub-btn" onclick="location.href='sub/Kimjihye.html'">지혜님</button>
 </body>
 
 </html>
