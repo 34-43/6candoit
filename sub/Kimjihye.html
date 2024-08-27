@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+        .intro {
+            width: 600px;
+            height: 150px;
+            background-color: aqua;
+            background-image: url(https://www.sputnik.kr/article_img/202201/article_1641706730.jpg);
+            background-position: center;
+            box-sizing: cover;
+            border-radius: 10px;
+            margin: 50px auto;
+            padding-top: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-name {
+            font-family: "Black Han Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 60px;
+        }
+
+        .intro-text {
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-size: 20px;
+        }
+
+        p {
+            line-height: 20px;
+        }
+
+        .content {
+            width: 1200px;
+            height: 700px;
+            margin: 50px auto;
+            border: 3px, solid, blue;
+        }
+
+        .content>div {
+            width: 1200px;
+            height: 600px;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .c-image {
+            width: 350px;
+            height: 500px;
+            border: 3px, solid, blue;
+            margin-right: 50px;
+        }
+
+        .c-text {
+            width: 700px;
+            height: 500px;
+            border: 3px, solid, blue;
+            padding: 50px;
+        }
+
+    </style>
+    <title>6CANDOIT</title>
+</head>
+
+<body>
+    <div class="intro">
+        <p class="intro-name">김지혜</p>
+        <p class="intro-text">뭔진 모르겠고 일단 파이팅합시다</p>
+    </div>
+
+    <div class="content">
+        <div>
+            <div class="c-image">이미지가 들어갈 자리</div>
+            <div class="c-text">설명이 들어갈 자리</div>
+        </div>
+        <div class="buttons">
+            <button>수정하기</button>
+            <button>삭제하기</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
