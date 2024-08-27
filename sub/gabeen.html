@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가빈개인페이지</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -23,7 +22,7 @@
             overflow: hidden;
             position: absolute;
 
-           
+
             top: 10px;
             z-index: 10;
         }
@@ -47,12 +46,12 @@
             background-color: antiquewhite;
             background-position: center;
             background-size: cover;
-            
+
             z-index: 1;
         }
 
         .mycards {
-            width: 1000px; 
+            width: 1000px;
             margin: 30px auto 0px auto;
             box-shadow: 0px 0px 3px 0px rgb(255, 157, 0);
             padding: 20px;
@@ -64,59 +63,24 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
+            margin-left: auto;
         }
 
         .mybtn>button {
             margin-right: 5px;
         }
     </style>
-    <script>
-        $(document).ready(function () {
-            let url = "http://spartacodingclub.shop/sparta_api/seoulair";
-            fetch(url).then(res => res.json()).then(data => {
-                let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM']
-                $('#msg').text(mise)
-            })
-        })
-
-        function openclose() {
-            $('#postingbox').toggle();
-        }
-        function makeCard() {
-            let image = $('#image').val();
-            let title = $('#title').val();
-            let content = $('#content').val();
-            let date = $('#date').val();
-
-            let temp_html = `            
-            <div class="col">
-                <div class="card h-100">
-                    <img src="${image}"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${content}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">${date}</small>
-                    </div>
-                </div>
-            </div>`;
-            $('#card').append(temp_html);
-        }
-    </script>
-
-
 
 </head>
 
 <body>
     <div class="myname">
         <h1>김00</h1>
-        <p>오늘의 기분은? <span id="msg">나쁨</span></p>
+        <p>오늘의 기분은? <span>좋음</span></p>
         <div class="box" style="background: #BDBDBD;">
-            <img class="profile" src="https://dareumdaroom.com/wp-content/uploads/2024/01/%EA%B0%95%EC%95%84%EC%A7%80%EC%9B%90-1024x1024-optimized.png">
+            <img class="profile"
+                src="https://dareumdaroom.com/wp-content/uploads/2024/01/%EA%B0%95%EC%95%84%EC%A7%80%EC%9B%90-1024x1024-optimized.png">
         </div>
 
     </div>
@@ -124,19 +88,26 @@
         <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
             <div class="card mb-3" style="width: 100%;">
                 <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                            class="img-fluid rounded-start" alt="...">
                     </div>
-                  </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
 
+
+            <div class="mybtn">
+                </button><button type="button" class="btn btn-warning">등록하기</button><button type="button"
+                    class="btn btn-outline-warning">취소하기
+            </div>
         </div>
 
 
