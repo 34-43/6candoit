@@ -30,8 +30,8 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        //저장데이터 불러오기
-        //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+        //저장데이터 불러오기(하나만)
+        //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
         const docRef = doc(db, "project_01", "Ov0Z5ToRphy3zOLEilBr");
         const docSnap = await getDoc(docRef);
         let row = docSnap.data();
@@ -72,9 +72,10 @@
 
             $('#upd').hide();
             $('#del').hide();
+            $('#back-home').hide();
         })
 
-        //수정하기>확인 클릭 시(수정요망)
+        //수정하기>확인 클릭 시
         $("#upd-ok").click(async function () {
             let img = $('#f-img').val();
             let name = $('#f-name').val();
@@ -106,7 +107,7 @@
             window.location.reload();
         })
 
-        //삭제하기 클릭시(수정요망)
+        //삭제하기 클릭시
         $("#del").click(async function () {
             var answer = confirm("정말 삭제하시겠습니까?");
 

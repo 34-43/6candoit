@@ -50,27 +50,28 @@
             let animal_text = $('#f-animal-text').val();
             let mbti = $('#f-mbti').val();
             let habit = $('#f-habit').val();
-            let blog_url = $('#f-blog_url').val();
-            let git_url = $('#f-git_url').val();
+            let blog_url = $('#f-blog-url').val();
+            let git_url = $('#f-git-url').val();
             let comment = $('#f-comment').val();
 
             let row = {
                 'name': name,
                 'img': img,
                 'age': age,
-                'animal' : animal,
-                'animal_text' : animal_text,
+                'animal': animal,
+                'animal_text': animal_text,
                 'mbti': mbti,
                 'habit': habit,
                 'blog_url': blog_url,
                 'git_url': git_url,
                 'comment': comment,
             }
-            //console.log(row);
+            console.log(row);
             await addDoc(collection(db, "project_01"), row);
             alert('저장 완료!');
             window.location.reload();//새로고침
         })
+
         //취소 시
         $("#make-no").click(async function () {
             window.location.reload();
@@ -90,7 +91,7 @@
             $('#c-animal').append(`<img src="${animal}">`);
             $('#c-animal-text').append(animal_text);
         });
-       
+
     </script>
 
 </head>
@@ -181,7 +182,8 @@
             <div class="container mt-5 mb-5">
                 <h1 class="mb-4 pb-3 border-bottom text-black-50">팀원</h1>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">팀원추가</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">팀원추가</button>
             </div>
 
             <div id="profile_card_list" class="d-flex flex-row justify-content-center gap-5">
@@ -193,49 +195,12 @@
             </div>
         </div>
 
-    <!--form창 띄우는 임시 버튼입니다-->
-    <button id="f-btn">생성하기</button>
-
-    <!--임시 form 창입니다 (form 추가 필요_동물설명)-->
-    <div class="form-box" id="form-box">
-        <span>이름: </span>
-        <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
-        <span>&emsp;나이: </span>
-        <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
-        <span>MBTI: </span>
-        <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
-        <span>&emsp;취미: </span>
-        <input type="text" id="f-habit" placeholder="취미"><br><br>
-        <span>대표 동물: </span>
-        <select name="f-animal" id="f-animal">
-            <option value="IMG/raccoon_img.jpg">너구리</option>
-            <option value="IMG/dog_img.jpg">강아지</option>
-            <option value="IMG/cat_img.jpg">고양이</option>
-            <option value="IMG/tiger_img.jpg">호랑이</option>
-            <option value="IMG/koala_img.jpg">코알라</option>
-        </select><br><br>
-        <span>대표 동물에 대한 간단한 설명: </span>
-        <input type="text" id="f-animal-text" placeholder="대표동물설명" size="60"><br><br>
-        <span>이미지: </span>
-        <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
-        <span>개발을 시작하게 된 계기: </span>
-        <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
-        <span>블로그: </span>
-        <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
-        <span>깃허브: </span>
-        <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
-        <div class="f-btn-co">
-            <button type="button" class="btn btn-warning" id="make-ok">확인</button>
-            <button type="button" class="btn btn-warning" id="make-no">취소</button>
+        <!--read를 확인하는 임시 카드입니다-->
+        <div id="cards" class="cards">
+            <div id="c-animal" class="c-animal"></div>
+            <p id="c-name"></p>
+            <p id="c-mbti"></p>
         </div>
-    </div>
-
-    <!--read를 확인하는 임시 카드입니다-->
-    <div id="cards" class="cards">
-        <div id="c-animal" class="c-animal"></div>
-        <p id="c-name"></p>
-        <p id="c-mbti"></p>
-    </div>
 
 
         <!-- Modal -->
@@ -250,21 +215,54 @@
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">이름</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <label class="form-label">이름</label>
+                                <input type="text" class="form-control" id="f-name" maxlength="8">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">나이</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1">
+                                <label class="form-label">나이</label>
+                                <input type="text" class="form-control" id="f-age" maxlength="3">
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">이건 뭐야</label>
+                            <div class="mb-3">
+                                <label class="form-label">MBTI</label>
+                                <input type="text" class="form-control" id="f-mbti" maxlength="4">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">대표 동물</label>
+                                <select class="form-select" name="f-animal" id="f-animal">
+                                    <option selected value="IMG/cat_img.jpg">고양이</option>
+                                    <option value="IMG/raccoon_img.jpg">너구리</option>
+                                    <option value="IMG/tiger_img.jpg">호랑이</option>
+                                    <option value="IMG/dog_img.jpg">강아지</option>
+                                    <option value="IMG/koala_img.jpg">코알라</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">선택한 동물에 대한 설명</label>
+                                <input type="text" class="form-control" id="f-animal-text">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">취미</label>
+                                <input type="text" class="form-control" id="f-habit">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">이미지</label>
+                                <input type="text" class="form-control" id="f-img">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">개발을 시작하게 된 계기</label>
+                                <textarea class="form-control" id="f-comment"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">깃허브 주소</label>
+                                <input type="text" class="form-control" id="f-git-url">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">블로그 주소</label>
+                                <input type="text" class="form-control" id="f-blog-url">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Understood</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="make-no">닫기</button>
+                                <button type="button" class="btn btn-primary" id="make-ok">만들기</button>
                             </div>
                         </form>
                     </div>
@@ -282,7 +280,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script src="firebase.js" type="module"></script>
+    <script src="firebase.js" type="module"></script>
 </body>
 
 </html>
