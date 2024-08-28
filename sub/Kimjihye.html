@@ -74,7 +74,7 @@
             $('#del').hide();
         })
 
-        //확인 클릭 시
+        //수정하기>확인 클릭 시
         $("#upd-ok").click(async function () {
             let img = $('#f-img').val();
             let name = $('#f-name').val();
@@ -100,14 +100,14 @@
             window.location.reload();
         })
 
-        //취소 클릭 시
+        //수정하기>취소 클릭 시
         $("#upd-no").click(async function () {
             window.location.reload();
         })
 
         //삭제하기 클릭시
         $("#del").click(async function () {
-            var answer = confirm("정말로 삭제하시겠습니까?");
+            var answer = confirm("정말 삭제하시겠습니까?");
 
             if (answer) {
                 await deleteDoc(doc(db, 'project_01', 'name'));
