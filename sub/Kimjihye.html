@@ -30,7 +30,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        //저장데이터 불러오기
+        //저장데이터 불러오기(모든 데이터가 불러와지므로 수정요망)
         let docs = await getDocs(collection(db, "project_01"));
         docs.forEach((doc) => {
             let row = doc.data();
@@ -74,7 +74,7 @@
             $('#del').hide();
         })
 
-        //수정하기>확인 클릭 시
+        //수정하기>확인 클릭 시(수정요망)
         $("#upd-ok").click(async function () {
             let img = $('#f-img').val();
             let name = $('#f-name').val();
@@ -105,14 +105,13 @@
             window.location.reload();
         })
 
-        //삭제하기 클릭시
+        //삭제하기 클릭시(수정요망)
         $("#del").click(async function () {
             var answer = confirm("정말 삭제하시겠습니까?");
 
             if (answer) {
                 await deleteDoc(doc(db, 'project_01', 'name'));
-                window.location.reload();
-                //window.location.href = '/';
+                window.location.href = './index.html';
             }
         })
 
@@ -247,6 +246,7 @@
 </head>
 
 <body>
+
     <div class="intro">
         <p class="intro-name" id="name"></p>
         <p class="intro-text">당신의 햄스터. 술떡으로 대체되었다</p>

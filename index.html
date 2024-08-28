@@ -36,6 +36,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+
         //form 창 띄우기
         $("#f-btn").click(async function () {
             $('#form-box').show();
@@ -196,10 +197,10 @@
             </div>
         </div>
 
-        <!--form창 띄우는 임시 버튼입니다-->
+    <!--form창 띄우는 임시 버튼입니다-->
     <button id="f-btn">생성하기</button>
 
-    <!--임시 form 창입니다-->
+    <!--임시 form 창입니다 (form 추가 필요_동물설명)-->
     <div class="form-box" id="form-box">
         <span>이름: </span>
         <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
@@ -214,9 +215,11 @@
             <option value="IMG/raccoon_img.jpg">너구리</option>
             <option value="IMG/dog_img.jpg">강아지</option>
             <option value="IMG/cat_img.jpg">고양이</option>
-            <option value="/">호랑이</option>
+            <option value="IMG/tiger_img.jpg">호랑이</option>
             <option value="IMG/koala_img.jpg">코알라</option>
-        </select>
+        </select><br><br>
+        <span>대표 동물에 대한 간단한 설명: </span>
+        <input type="text" id="f-animal-text" placeholder="대표동물설명" size="60"><br><br>
         <span>이미지: </span>
         <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
         <span>개발을 시작하게 된 계기: </span>
