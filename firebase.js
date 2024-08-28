@@ -29,13 +29,12 @@ docs.forEach((doc) => {
     console.log(row);
 
     document.getElementById('profile_card_template').remove()
-
     
     let name = row['name'];
     let url_name = "Kimjihye";
     let img_src = row['img'];
     let description = row['comment'];
-    let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='sub/${url_name}.html'">
+    let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='sub/${name}.html'">
                     <h3 class="m-2 text-center">${name}</h3>
                     <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${img_src}">
                     <p class="p-2 bg-body-tertiary">${description}</p>
