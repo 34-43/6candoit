@@ -1,8 +1,8 @@
 :root {
     --color-bg--: #F7EFE5;
     --color-banner--: #C8A1E0;
-    --color-primary--:#E2BFD9;
-    --color-text--:#674188;
+    --color-primary--: #E2BFD9;
+    --color-text--: #674188;
 }
 
 .noto-sans-kr-6candoit {
@@ -16,8 +16,8 @@ body {
     background-color: var(--color-bg--);
     color: var(--color-text--);
     max-width: 900px;
-    margin:auto;
-    padding:30px;
+    margin: auto;
+    padding: 30px;
 }
 
 p {
@@ -29,23 +29,30 @@ p {
     background-color: var(--color-primary--);
     opacity: 60%;
     padding: 30px;
-    border-radius: 15px; 
+    border-radius: 15px;
 }
+
 .card-team-info {
-    list-style: none; 
+    list-style: none;
     padding: 15px;
-    background-color:var(--color-primary--);
+    background-color: var(--color-primary--);
     border-radius: 15px;
     width: 200px;
     min-height: 300px;
     box-shadow: black;
 }
+
 .sub-btn {
-    margin:20px;
-    padding:10px;
+    margin: 20px;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     box-shadow: 0px 3px rgb(112, 112, 112);
     background-color: var(--color-primary--);
     width: 100px;
+}
+
+/*form 관련 css입니다!*/
+.form-box {
+    display: none;
 }
