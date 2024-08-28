@@ -30,12 +30,13 @@ docs.forEach((doc) => {
     let row = doc.data();
     
     let name = row['name'];
-    let img_src = row['img'];
-    let description = row['comment'];
+    let animal = row['animal'];
+    let animal_text = row['animal_text'];
+
     let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='sub/${name}.html'">
                     <h3 class="m-2 text-center">${name}</h3>
-                    <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${img_src}">
-                    <p class="p-2 bg-body-tertiary">${description}</p>
+                    <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${animal}">
+                    <p class="p-2 bg-body-tertiary">${animal_text}</p>
                 </div>`;
     let reff_obj = document.createElement('div');
     reff_obj.innerHTML = profile_card;
