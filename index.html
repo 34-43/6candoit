@@ -35,17 +35,19 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+
         //form 창 띄우기
         $("#f-btn").click(async function () {
             $('#form-box').show();
             $('#f-btn').hide();
         })
-        //확인 시(create) >> 현재 저장 id가 name으로 지정되지 않음 수정요망
+        //확인 시(create)
         $("#make-ok").click(async function () {
             let img = $('#f-img').val();
             let name = $('#f-name').val();
             let age = $('#f-age').val();
             let animal = $('#f-animal').val();
+            let animal_text = $('#f-animal-text').val();
             let mbti = $('#f-mbti').val();
             let habit = $('#f-habit').val();
             let blog_url = $('#f-blog_url').val();
@@ -57,6 +59,7 @@
                 'img': img,
                 'age': age,
                 'animal' : animal,
+                'animal_text' : animal_text,
                 'mbti': mbti,
                 'habit': habit,
                 'blog_url': blog_url,
@@ -80,12 +83,12 @@
 
             let name = row['name'];
             let animal = row['animal'];
-            let mbti = row['mbti'];
+            let animal_text = row['animal_text'];
 
             //read
             $('#c-name').append(name);
             $('#c-animal').append(`<img src="${animal}">`);
-            $('#c-mbti').append(mbti);
+            $('#c-animal-text').append(animal_text);
         });
        
     </script>
@@ -178,8 +181,7 @@
             <div class="container mt-5 mb-5">
                 <h1 class="mb-4 pb-3 border-bottom text-black-50">팀원</h1>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">팀원
-                    추가</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">팀원추가</button>
             </div>
 
             <div id="profile_card_list" class="d-flex flex-row justify-content-center gap-5">
@@ -191,10 +193,10 @@
             </div>
         </div>
 
-        <!--form창 띄우는 임시 버튼입니다-->
+    <!--form창 띄우는 임시 버튼입니다-->
     <button id="f-btn">생성하기</button>
 
-    <!--임시 form 창입니다-->
+    <!--임시 form 창입니다 (form 추가 필요_동물설명)-->
     <div class="form-box" id="form-box">
         <span>이름: </span>
         <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
@@ -209,9 +211,11 @@
             <option value="IMG/raccoon_img.jpg">너구리</option>
             <option value="IMG/dog_img.jpg">강아지</option>
             <option value="IMG/cat_img.jpg">고양이</option>
-            <option value="/">호랑이</option>
+            <option value="IMG/tiger_img.jpg">호랑이</option>
             <option value="IMG/koala_img.jpg">코알라</option>
-        </select>
+        </select><br><br>
+        <span>대표 동물에 대한 간단한 설명: </span>
+        <input type="text" id="f-animal-text" placeholder="대표동물설명" size="60"><br><br>
         <span>이미지: </span>
         <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
         <span>개발을 시작하게 된 계기: </span>
