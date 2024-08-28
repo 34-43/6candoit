@@ -28,16 +28,53 @@ document.getElementById('profile_card_template').remove()
 let docs = await getDocs(collection(db, "project_01"));
 docs.forEach((doc) => {
     let row = doc.data();
-    
+
     let name = row['name'];
-    let img_src = row['img'];
-    let description = row['comment'];
+    let animal = row['animal'];
+    let animal_text = row['animal_text'];
+
     let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='sub/${name}.html'">
                     <h3 class="m-2 text-center">${name}</h3>
-                    <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${img_src}">
-                    <p class="p-2 bg-body-tertiary">${description}</p>
+                    <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${animal}">
+                    <p class="p-2 bg-body-tertiary">${animal_text}</p>
                 </div>`;
     let reff_obj = document.createElement('div');
     reff_obj.innerHTML = profile_card;
     document.getElementById('profile_card_list').append(reff_obj);
 });
+
+//form 창 띄우기
+$("#f-btn").click(async function () {
+    $('#form-box').show();
+    $('#f-btn').hide();
+})
+//확인 시(create)
+$("#make-ok").click(async function () {
+    let img = $('#f-img').val();
+    let name = $('#f-name').val();
+    let age = $('#f-age').val();
+    let animal = $('#f-animal').val();
+    let animal_text = $('#f-animal-text').val();
+    let mbti = $('#f-mbti').val();
+    let habit = $('#f-habit').val();
+    let blog_url = $('#f-blog-url').val();
+    let git_url = $('#f-git-url').val();
+    let comment = $('#f-comment').val();
+
+    let row = {
+        'name': name,
+        'img': img,
+        'age': age,
+        'animal': animal,
+        'animal_text': animal_text,
+        'mbti': mbti,
+        'habit': habit,
+        'blog_url': blog_url,
+        'git_url': git_url,
+        'comment': comment,
+    }
+    console.log(row);
+    await addDoc(collection(db, "project_01"), row);
+    alert('저장 완료!');
+    window.location.reload();//새로고침
+})
