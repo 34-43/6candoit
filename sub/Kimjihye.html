@@ -44,6 +44,7 @@
             let git_url = row['git_url'];
             let comment = row['comment'];
 
+            //read
             $('#img').append(`<img src="${img}">`);
             $('#name').append(name);
             $('#age').append(age);
@@ -52,12 +53,25 @@
             $('#blog_url').append(blog_url);
             $('#git_url').append(git_url);
             $('#comment').append(comment);
+
+            //form value
+            $('#f-img').attr('value', img);
+            $('#f-name').attr('value', name);
+            $('#f-age').attr('value', age);
+            $('#f-mbti').attr('value', mbti);
+            $('#f-habit').attr('value', habit);
+            $('#f-blog_url').attr('value', blog_url);
+            $('#f-git_url').attr('value', git_url);
+            $('#f-comment').attr('value', comment);
         });
 
         //수정하기 클릭 시
         $("#upd").click(async function () {
             $('#yes').hide();
             $('#no').css('display', 'flex');
+
+            $('#upd').hide();
+            $('#del').hide();
         })
 
         //확인 클릭 시
@@ -82,7 +96,7 @@
                 'comment': comment,
             }
 
-            await updateDoc(doc(db, 'project_01', 'name'), row);     
+            await updateDoc(doc(db, 'project_01', 'name'), row);
             window.location.reload();
         })
 
@@ -203,11 +217,17 @@
 
         .f-text {
             width: 1000px;
-            height: 500px;
+            height: 540px;
             background-color: rgb(255, 255, 255);
             border-radius: 10px;
-            padding: 20px;
+            padding: 50px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .f-btn-co {
+            width: 200px;
+            position: relative;
+            left: 800px;
         }
 
         span {
@@ -253,23 +273,25 @@
         <div class="main-form" id="no">
             <div class="f-text">
                 <span>이름: </span>
-                <input type="text" id="f-name" placeholder="이름"><br>
-                <span>이미지: </span>
-                <input type="text" id="f-img" placeholder="이미지 url"><br>
-                <span>나이: </span>
-                <input type="text" id="f-age" placeholder="나이"><br>
+                <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
+                <span>&emsp;나이: </span>
+                <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
                 <span>MBTI: </span>
-                <input type="text" id="f-mbti" placeholder="MBTI"><br>
-                <span>취미: </span>
-                <input type="text" id="f-habit" placeholder="취미"><br>
+                <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
+                <span>&emsp;취미: </span>
+                <input type="text" id="f-habit" placeholder="취미"><br><br>
+                <span>이미지: </span>
+                <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
                 <span>개발을 시작하게 된 계기: </span>
-                <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기"><br>
+                <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
                 <span>블로그: </span>
-                <input type="text" id="f-blog_url" placeholder="블로그 url"><br>
+                <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
                 <span>깃허브: </span>
-                <input type="text" id="f-git_url" placeholder="깃허브 url"><br><br>
-                <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
-                <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+                <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
+                <div class="f-btn-co">
+                    <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
+                    <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+                </div>
             </div>
         </div>
         <div class="btn-co">
