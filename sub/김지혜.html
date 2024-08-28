@@ -11,7 +11,7 @@
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
         // Firebase 구성 정보 설정
@@ -30,40 +30,40 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        //저장데이터 불러오기(모든 데이터가 불러와지므로 수정요망)
-        let docs = await getDocs(collection(db, "project_01"));
-        docs.forEach((doc) => {
-            let row = doc.data();
+        //저장데이터 불러오기
+        //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+        const docRef = doc(db, "project_01", "Ov0Z5ToRphy3zOLEilBr");
+        const docSnap = await getDoc(docRef);
+        let row = docSnap.data();
 
-            let img = row['img'];
-            let name = row['name'];
-            let age = row['age'];
-            let mbti = row['mbti'];
-            let habit = row['habit'];
-            let blog_url = row['blog_url'];
-            let git_url = row['git_url'];
-            let comment = row['comment'];
+        let img = row['img'];
+        let name = row['name'];
+        let age = row['age'];
+        let mbti = row['mbti'];
+        let habit = row['habit'];
+        let blog_url = row['blog_url'];
+        let git_url = row['git_url'];
+        let comment = row['comment'];
 
-            //read
-            $('#img').append(`<img src="${img}">`);
-            $('#name').append(name);
-            $('#age').append(age);
-            $('#mbti').append(mbti);
-            $('#habit').append(habit);
-            $('#blog_url').append(blog_url);
-            $('#git_url').append(git_url);
-            $('#comment').append(comment);
+        //read
+        $('#img').append(`<img src="${img}">`);
+        $('#name').append(name);
+        $('#age').append(age);
+        $('#mbti').append(mbti);
+        $('#habit').append(habit);
+        $('#blog_url').append(blog_url);
+        $('#git_url').append(git_url);
+        $('#comment').append(comment);
 
-            //form value
-            $('#f-img').attr('value', img);
-            $('#f-name').attr('value', name);
-            $('#f-age').attr('value', age);
-            $('#f-mbti').attr('value', mbti);
-            $('#f-habit').attr('value', habit);
-            $('#f-blog_url').attr('value', blog_url);
-            $('#f-git_url').attr('value', git_url);
-            $('#f-comment').attr('value', comment);
-        });
+        //form value
+        $('#f-img').attr('value', img);
+        $('#f-name').attr('value', name);
+        $('#f-age').attr('value', age);
+        $('#f-mbti').attr('value', mbti);
+        $('#f-habit').attr('value', habit);
+        $('#f-blog_url').attr('value', blog_url);
+        $('#f-git_url').attr('value', git_url);
+        $('#f-comment').attr('value', comment);
 
         //수정하기 클릭 시
         $("#upd").click(async function () {
@@ -96,7 +96,8 @@
                 'comment': comment,
             }
 
-            await updateDoc(doc(db, 'project_01', 'name'), row);
+            //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+            await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
             window.location.reload();
         })
 
@@ -110,9 +111,15 @@
             var answer = confirm("정말 삭제하시겠습니까?");
 
             if (answer) {
-                await deleteDoc(doc(db, 'project_01', 'name'));
-                window.location.href = './index.html';
+                //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+                await deleteDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'));
+                window.location.href = '../index.html';
             }
+        })
+
+        //홈으로 돌아가기 클릭시
+        $("#back-home").click(async function () {
+            window.location.href = '../index.html';
         })
 
     </script>
@@ -237,9 +244,9 @@
         }
 
         .btn-co {
-            width: 200px;
+            width: 1200px;
             position: relative;
-            left: 950px;
+            left: 800px;
         }
     </style>
     <title>6CANDOIT</title>
@@ -294,7 +301,9 @@
                 </div>
             </div>
         </div>
+
         <div class="btn-co">
+            <button type="button" class="btn btn-primary" id="back-home">홈으로 돌아가기</button>
             <button type="button" class="btn btn-warning" id="upd">수정하기</button>
             <button type="button" class="btn btn-danger" id="del">삭제하기</button>
         </div>
