@@ -12,88 +12,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--스크립트 추가 부분입니다-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="module">
-        // Firebase SDK 라이브러리 가져오기
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        // Firebase 구성 정보 설정
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyA9zC58RD2rPKiDTqciIhq3qY5b0NtoRPQ",
-            authDomain: "sparta-10d8f.firebaseapp.com",
-            projectId: "sparta-10d8f",
-            storageBucket: "sparta-10d8f.appspot.com",
-            messagingSenderId: "740890493301",
-            appId: "1:740890493301:web:956981f7896ca6c548133c",
-            measurementId: "G-6HR5DY5SVX"
-        };
-
-        // Firebase 인스턴스 초기화
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-
-        //form 창 띄우기
-        $("#f-btn").click(async function () {
-            $('#form-box').show();
-            $('#f-btn').hide();
-        })
-        //확인 시(create)
-        $("#make-ok").click(async function () {
-            let img = $('#f-img').val();
-            let name = $('#f-name').val();
-            let age = $('#f-age').val();
-            let animal = $('#f-animal').val();
-            let animal_text = $('#f-animal-text').val();
-            let mbti = $('#f-mbti').val();
-            let habit = $('#f-habit').val();
-            let blog_url = $('#f-blog-url').val();
-            let git_url = $('#f-git-url').val();
-            let comment = $('#f-comment').val();
-
-            let row = {
-                'name': name,
-                'img': img,
-                'age': age,
-                'animal': animal,
-                'animal_text': animal_text,
-                'mbti': mbti,
-                'habit': habit,
-                'blog_url': blog_url,
-                'git_url': git_url,
-                'comment': comment,
-            }
-            console.log(row);
-            await addDoc(collection(db, "project_01"), row);
-            alert('저장 완료!');
-            window.location.reload();//새로고침
-        })
-
-        //취소 시
-        $("#make-no").click(async function () {
-            window.location.reload();
-        })
-
-        //read >> 이름, mbti, 대표 동물 정보만 가져왔습니다.(수정필요, 카드 만드는 것까지.)
-        let docs = await getDocs(collection(db, "project_01"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-
-            let name = row['name'];
-            let animal = row['animal'];
-            let animal_text = row['animal_text'];
-
-            //read
-            $('#c-name').append(name);
-            $('#c-animal').append(`<img src="${animal}">`);
-            $('#c-animal-text').append(animal_text);
-        });
-
-    </script>
-
 </head>
 
 <body>
@@ -112,7 +30,7 @@
             <div class="mt-2 mb-2">
                 <div class="container p-0 w-100 text-end">
                     <button class="btn btn-primary btn-lg" type="button"
-                        onclick="location.href='https://github.com/34-43/6candoit'">
+                        onclick="window.open('https://github.com/34-43/6candoit')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                             class="bi bi-github" viewBox="0 0 16 16">
                             <path
@@ -121,7 +39,7 @@
                         팀 Github
                     </button>
                     <button class="btn btn-secondary btn-lg" type="button"
-                        onclick="location.href='https://www.notion.so/teamsparta/6-bc1c488a4a594dac856b83a6cb048a52?pvs=4'">
+                        onclick="window.open('https://www.notion.so/teamsparta/6-bc1c488a4a594dac856b83a6cb048a52?pvs=4')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                             class="bi bi-journals" viewBox="0 0 16 16">
                             <path
@@ -186,7 +104,7 @@
                     data-bs-target="#staticBackdrop">팀원추가</button>
             </div>
 
-            <div id="profile_card_list" class="d-flex flex-row justify-content-center gap-5">
+            <div id="profile_card_list" class="d-flex flex-row justify-content-center gap-5 pb-5">
                 <div id="profile_card_template" class="d-inline-flex card border-0">
                     <h3 class="m-2 text-center"></h3>
                     <img class="rounded-circle img-thumbnail">
@@ -194,14 +112,6 @@
                 </div>
             </div>
         </div>
-
-        <!--read를 확인하는 임시 카드입니다-->
-        <div id="cards" class="cards">
-            <div id="c-animal" class="c-animal"></div>
-            <p id="c-name"></p>
-            <p id="c-mbti"></p>
-        </div>
-
 
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
