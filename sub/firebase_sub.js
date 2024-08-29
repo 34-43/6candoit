@@ -99,7 +99,7 @@ $("#upd-ok").click(async function () {
     let img = $('#f-img').val();
     let name = $('#f-name').val();
     let age = $('#f-age').val();
-    let mbti = $('#f-mbti').val();
+    let mbti = $('#f-mbti').val().toUpperCase();
     let habit = $('#f-habit').val();
     let blog_url = $('#f-blog_url').val();
     let git_url = $('#f-git_url').val();

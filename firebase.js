@@ -50,7 +50,7 @@ docs.forEach((doc) => {
     }
 
     let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='${link}'">
-                    <h3 class="m-2 text-center">${name}</h3>
+                    <h3 class="m-2 text-center" style="font-family: Jua, sans-serif;">${name}</h3>
                     <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${animal}">
                     <p class="p-2 bg-body-tertiary">${animal_text}</p>
                 </div>`;
@@ -71,7 +71,7 @@ $("#make-ok").click(async function () {
     let age = $('#f-age').val();
     let animal = $('#f-animal').val();
     let animal_text = $('#f-animal-text').val();
-    let mbti = $('#f-mbti').val();
+    let mbti = $('#f-mbti').val().toUpperCase();
     let habit = $('#f-habit').val();
     let blog_url = $('#f-blog-url').val();
     let git_url = $('#f-git-url').val();
