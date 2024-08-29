@@ -12,6 +12,141 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9zC58RD2rPKiDTqciIhq3qY5b0NtoRPQ",
+            authDomain: "sparta-10d8f.firebaseapp.com",
+            projectId: "sparta-10d8f",
+            storageBucket: "sparta-10d8f.appspot.com",
+            messagingSenderId: "740890493301",
+            appId: "1:740890493301:web:956981f7896ca6c548133c",
+            measurementId: "G-6HR5DY5SVX"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        //저장데이터 불러오기(하나만)
+        //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
+        const docRef = doc(db, "project_01", "yGHZb3s5nCzCmLhQEaB5");
+        const docSnap = await getDoc(docRef);
+        let row = docSnap.data();
+
+        let img = row['img'];
+        let name = row['name'];
+        let age = row['age'];
+        let mbti = row['mbti'];
+        let habit = row['habit'];
+        let blog_url = row['blog_url'];
+        let git_url = row['git_url'];
+        let comment = row['comment'];
+
+        let bootstrap_git = `
+        <a class="navbar-brand" href="${git_url}" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
+                class="d-inline-block">
+                Github
+        </a>`
+
+        let bootstrap_blog = `
+            <a class="navbar-brand" href="${blog_url}" target="_blank">
+                <img src="https://images.velog.io/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png"
+                    alt="Logo" width="30" height="30" class="d-inline-block">
+                    Velog
+            </a>`
+
+        //read
+        $('#img').append(`<img src="${img}">`);
+        $('#bootstrap_git').append(bootstrap_git);
+        $('#bootstrap_blog').append(bootstrap_blog);
+        $('#name').append(name);
+        $('#age').append(age);
+        $('#mbti').append(mbti);
+        $('#habit').append(habit);
+        $('#blog_url').append(blog_url);
+        $('#git_url').append(git_url);
+        $('#comment').append(comment);
+
+        //form value
+        $('#f-img').attr('value', img);
+        $('#f-name').attr('value', name);
+        $('#f-age').attr('value', age);
+        $('#f-mbti').attr('value', mbti);
+        $('#f-habit').attr('value', habit);
+        $('#f-blog_url').attr('value', blog_url);
+        $('#f-git_url').attr('value', git_url);
+        $('#f-comment').attr('value', comment);
+
+        $('#no').hide();
+
+        //수정하기 클릭 시
+        $("#upd").click(async function () {
+            $('#yes').hide();
+            $('#no').css('display', 'flex');
+
+            $('#upd').hide();
+            $('#del').hide();
+            $('#back-home').hide();
+        })
+
+        //수정하기>확인 클릭 시
+        $("#upd-ok").click(async function () {
+            let img = $('#f-img').val();
+            let name = $('#f-name').val();
+            let age = $('#f-age').val();
+            let mbti = $('#f-mbti').val();
+            let habit = $('#f-habit').val();
+            let blog_url = $('#f-blog_url').val();
+            let git_url = $('#f-git_url').val();
+            let comment = $('#f-comment').val();
+
+            let row = {
+                'img': img,
+                'name': name,
+                'age': age,
+                'mbti': mbti,
+                'habit': habit,
+                'blog_url': blog_url,
+                'git_url': git_url,
+                'comment': comment,
+            }
+
+            //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+            await updateDoc(doc(db, 'project_01', 'yGHZb3s5nCzCmLhQEaB5'), row);
+            window.location.reload();
+        })
+
+        //수정하기>취소 클릭 시
+        $("#upd-no").click(async function () {
+            window.location.reload();
+        })
+
+        //삭제하기 클릭시
+        $("#del").click(async function () {
+            var answer = confirm("정말 삭제하시겠습니까?");
+
+            if (answer) {
+                //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+                await deleteDoc(doc(db, 'project_01', 'yGHZb3s5nCzCmLhQEaB5'));
+                window.location.href = '../index.html';
+            }
+        })
+
+        //홈으로 돌아가기 클릭시
+        $("#back-home").click(async function () {
+            window.location.href = '../index.html';
+        })
+
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap');
 
@@ -82,12 +217,26 @@
             justify-content: center;
         }
 
-        .exitbtn {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        .f-btn-co {
+            width: 200px;
+            position: relative;
+            left: 800px;
+        }
+
+        .btn-co {
+            position: center;
             justify-content: center;
-            margin: 70px 30px 30px 30px;
+            display: flex;
+            margin: 70px 0px 30px 0px;
+        }
+
+        .main-form {
+            width: 1200px;
+            height: 570px;
+            padding: 50px;
+            display: none;
+            justify-content: center;
+            background-size: auto;
         }
     </style>
 </head>
@@ -95,20 +244,11 @@
 <body>
     <header class="p-3 text-bg-dark">
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="https://github.com/34-43/6candoit" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
-                        class="d-inline-block">
-                    Github
-                </a>
+
+            <div id="bootstrap_git" class="container-fluid">
             </div>
 
-            <div class="container-fluid">
-                <a class="navbar-brand" href="https://velog.io/@dumbo" target="_blank">
-                    <img src="https://images.velog.io/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png" alt="Logo" width="30" height="30"
-                        class="d-inline-block">
-                    Velog
-                </a>
+            <div id="bootstrap_blog" class="container-fluid">
             </div>
 
             <div class="container-fluid">
@@ -121,45 +261,70 @@
         </nav>
     </header>
 
-    <div class="introduction">
-        <h1>조중휘를 소개합니다</h1>
+    <div class="main-co" id="yes">
+        <div class="introduction">
+            <h1><span id="name"></span>를 소개합니다</h1>
+        </div>
+
+        <div class="picture">
+            <h5 id="img"></h5>
+            <h5>차분한 너구리 : 귀찮지만 평화와 안정을 위해 성실히 살아가는 평화주의자형</h5>
+        </div>
+
+        <div class="information">
+            <h3>내 정보</h3>
+            <h2 id="age">나이 : </h2>
+            <h2 id="mbti">MBTI : </h2>
+            <h2 id="habit">취미 : </h2>
+        </div>
+
+        <div class="information1">
+            <h3>개발을 시작한 계기</h3>
+            <h2 id="comment"></h2>
+        </div>
+
+        <div class="information2">
+            <h3>장점</h3>
+            <h2>책임감이 강하여 맡은 임무를 잘 수행합니다</h2>
+        </div>
+
+        <div class="information3">
+            <h3>각오 한마디</h3>
+            <h2>4개월간 힘들겠지만 취업을 위해 파이팅입니다!</h2>
+        </div>
+
+        <div class="btn-co">
+            <button type="button" class="btn btn-primary" id="back-home">홈으로 돌아가기</button>
+            <button type="button" class="btn btn-warning" id="upd">수정하기</button>
+            <button type="button" class="btn btn-danger" id="del">삭제하기</button>
+        </div>
+
     </div>
 
-    <div class="picture">
-        <img src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201707/21/1cc79198-a736-4a35-a917-967986eb733d.jpg"
-            class="img-thumbnail" alt="...">
-        <h5>차분한 너구리 : 귀찮지만 평화와 안정을 위해 성실히 살아가는 평화주의자형</h5>
+    <div class="main-form" id="no">
+        <div class="f-text">
+            <span>이름: </span>
+            <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
+            <span>&emsp;나이: </span>
+            <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
+            <span>MBTI: </span>
+            <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
+            <span>&emsp;취미: </span>
+            <input type="text" id="f-habit" placeholder="취미"><br><br>
+            <span>이미지: </span>
+            <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
+            <span>개발을 시작하게 된 계기: </span>
+            <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
+            <span>블로그: </span>
+            <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
+            <span>깃허브: </span>
+            <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
+            <div class="f-btn-co">
+                <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
+                <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+            </div>
+        </div>
     </div>
-
-    <div class="information">
-        <h3>내 정보</h3>
-        <h2>나이 : 1993.03.15(31살)</h2>
-        <h2>MBTI : ESFJ</h2>
-        <h2>취미 : 운동, 축구 시청</h2>
-    </div>
-
-    <div class="information1">
-        <h3>개발을 시작한 계기</h3>
-        <h2>취업이 잘된다는 전자공학과 진학 후</h2>
-        <h2>코딩에 관심을 가지게 되어 이 자리까지 오게 되었습니다</h2>
-    </div>
-
-    <div class="information2">
-        <h3>장점</h3>
-        <h2>책임감이 강하여 맡은 임무를 잘 수행합니다</h2>
-    </div>
-
-    <div class="information3">
-        <h3>각오 한마디</h3>
-        <h2>4개월간 힘들겠지만 취업을 위해 파이팅입니다!</h2>
-    </div>
-
-    <div class="exitbtn">
-        <button type="button" class="btn btn-warning" float:left;>삭제</button>
-        <button type="button" class="btn btn-light" float:right;>나가기</button>
-    </div>
-
-
 </body>
 
 </html>
