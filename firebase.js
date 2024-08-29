@@ -52,7 +52,7 @@ docs.forEach((doc) => {
     let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='${link}'">
                     <h3 class="m-2 text-center" style="font-family: Jua, sans-serif;">${name}</h3>
                     <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${animal}">
-                    <p class="p-2 bg-body-tertiary">${animal_text}</p>
+                    <p class="p-2 my-3 bg-body-tertiary">${animal_text}</p>
                 </div>`;
     let reff_obj = document.createElement('div');
     reff_obj.innerHTML = profile_card;
