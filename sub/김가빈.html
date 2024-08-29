@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>가빈개인페이지</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="firebase_sub.js" type="module"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
@@ -27,7 +26,6 @@
             /* 블록 요소로 변경하여 줄바꿈 적용 */
             margin-top: 0;
         }
-
 
         .box {
             width: 150px;
@@ -79,12 +77,10 @@
             margin-left: auto;
         }
 
-
         .mybtn>button {
             margin-right: 5px;
             font-size: 22px;
         }
-
 
         .f-btn-co {
             width: 200px;
@@ -125,24 +121,71 @@
                                         height="30">
                                         <title>티스토리 로고</title>
                                         <g>
-                                            <path
-                                                d="M229.5,0C102.75,0,0,102.75,0,229.5S102.75,459,229.5,459,459,356.25,459,229.5,356.25,0,229.5,0ZM130.21,191.45a39.57,39.57,0,1,1,39.56-39.57A39.58,39.58,0,0,1,130.21,191.45ZM229.5,390a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,390Zm0-99.29a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,290.74Zm0-99.29a39.57,39.57,0,1,1,39.56-39.57A39.57,39.57,0,0,1,229.5,191.45Zm99.29,0a39.57,39.57,0,1,1,39.57-39.57A39.57,39.57,0,0,1,328.79,191.45Z" />
+                                            <path d="M229.5,0C102.75,0,0,102.75,0,229.5S102.75,459,229.5,459,459,356.25,459,229.5,356.25,0,229.5,0ZM130.21,191.45a39.57,39.57,0,1,1,39.56-39.57A39.58,39.58,0,0,1,130.21,191.45ZM229.5,390a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,390Zm0-99.29a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,290.74Zm0-99.29a39.57,39.57,0,1,1,39.56-39.57A39.57,39.57,0,0,1,229.5,191.45Zm99.29,0a39.57,39.57,0,1,1,39.57-39.57A39.57,39.57,0,0,1,328.79,191.45Z" />
                                         </g>
                                     </svg>
                                 </a>
                             </div>
+                            
                             <div class="card-text" id="yes">
                                 이름:<span id="name"></span>
                                 MBTI:<span id="mbti"></span>
                                 나이:<span id="age"></span>
                                 취미:<span id="habit"></span>
-                                <p class="card-text" id="comment">안녕하세요! 개발을 처음 시작하는 개린이 입니다.<br>
-                                    <small class="text-body-secondary"><br>
-                                        객관적으로 살펴본 자신의 장점: 침착하고 인내심이 있습니다.<br>
-                                        자신의 협업 스타일: 수용적이며 맡겨진 일을 성실하게 수행합니다. <br>
-                                </p></small>
+                                개발을 시작하게 된 계기:
+                                <p class="card-text" id="comment"></p>
                             </div>
-                        
+
+                            <div>
+                    
+
+                                <div class="main-form" id="no">
+                                    <div class="f-text">
+                                        <span>이름: </span>
+                                        <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
+                                        <span>&emsp;나이: </span>
+                                        <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
+                                        <span>MBTI: </span>
+                                        <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
+                                        <span>&emsp;취미: </span>
+                                        <input type="text" id="f-habit" placeholder="취미"><br><br>
+                                        <span>이미지: </span>
+                                        <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
+                                        <span>개발을 시작하게 된 계기: </span>
+                                        <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
+                                        <span>블로그: </span>
+                                        <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
+                                        <span>깃허브: </span>
+                                        <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
+                                        <div class="f-btn-co">
+                                            <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
+                                            <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--
+                                  <div class="card-text" id="no">
+                                    이름: <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
+                                    MBTI:<input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
+                                    나이:<input type="text" id="f-age" placeholder="나이" size="3" maxlength="2">
+                                    취미:<input type="text" id="f-habit" placeholder="취미">
+                                    이미지 url:
+                                    <p class="card-text">개발을 시작하게 된 계기:<br>
+                                        <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60">
+                                    </p>
+    
+                                    <div class="f-btn-co">
+                                        <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
+                                        <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+                                    </div>
+                                </div>
+                                
+                                -->
+                              
+
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
