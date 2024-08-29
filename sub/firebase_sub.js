@@ -60,6 +60,7 @@ let bootstrap_blog = `
 //read
 $('#img').append(`<img src="${img}">`);
 $('#img_sized_500').append(`<img src="${img}" width=500, height=500 >`); //현우님 룰
+$('#img_bg').css("background-image",`url(${img})`); //재혁 룰
 $('#bootstrap_git').append(bootstrap_git); //중휘님 룰
 $('#bootstrap_blog').append(bootstrap_blog); //중휘님 룰
 $('#name').append(name);
@@ -68,8 +69,10 @@ $('#mbti').append(mbti);
 $('#habit').append(habit);
 $('#blog_url').append(blog_url);
 $('#blog_url').prop('href',blog_url); //재혁, 가빈님 룰
+$('#blog_anchor').prop('href',blog_url); //재혁 룰
 $('#git_url').append(git_url);
 $('#git_url').prop('href',git_url); //재혁, 가빈님 룰
+$('#git_anchor').prop('href',git_url); //재혁 룰
 $('#comment').append(comment);
 
 //form value

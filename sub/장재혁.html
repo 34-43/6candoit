@@ -4,40 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6조 장재혁을 소개합니다.</title>
+    <title>6팀 장재혁을 소개합니다.</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        .hahmlet {
+            font-family: "Hahmlet", serif;
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+        }
+    </style>
 </head>
 
-<body class="noto-sans-kr-6candoit">
-    <main style="font-family: Noto Sans KR;">
-        <!-- 배너 -->
-        <div class="container py-4 mt-5">
-            <!-- 팀 내용 -->
-            <div class="container mt-5 mb-5">
-                <h1 class="mb-4 pb-3 border-bottom text-black-50">장재혁</h1>
-                <div class="row gap-5">
-                    <div class="col card p-0 overflow-hidden">
-                        <div class="card-title bg-primary bg-opacity-50 p-2 text-white fs-4"></div>
-                        <div class="card-body">
-                            <div class="card-text">
-                                <h3>나이</h3><p id="age"></p>
-                                <h3>MBTI</h3><p id="mbti"></p>
-                                <h3>취미</h3><p id="habit"></p>
-                                <h3>개발을 시작하게 된 계기</h3><p id="comment"></p>
-                                <h3>블로그 주소</h3><a id="blog_url" href=""></a>
-                                <h3>깃허브 주소</h3><a id="git_url" href=""></a>
-                            </div>
+<body>
+    <main class="d-flex flex-column hahmlet vh-100">
+        <header class="d-flex justify-content-between border-bottom p-3 flex align-items-center">
+            <a class="icon-link icon-link-hover nav-link px-2 px-5 text-primary" href="../index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                </svg>
+                <use xlink:href="#arrow-left"></use>
+                </svg>
+                팀 소개 페이지로
+            </a>
+            <ul class="nav nav-pills flex align-items-center align-self-center gap-4">
+                <li class="nav-item">
+                    <a href="" id="git_anchor">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="grey" class="bi bi-github"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" id="blog_anchor">
+                        <svg width="32" height="32" viewBox="0 0 100 100" fill="grey"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.543 -0.19 12.817 2.917l17.663 12.443c2.913 2.14 3.883 2.723 3.883 5.053v68.243c0 4.277 -1.553 6.807 -6.99 7.193L24.467 99.967c-4.08 0.193 -6.023 -0.39 -8.16 -3.113L3.3 79.94c-2.333 -3.113 -3.3 -5.443 -3.3 -8.167V11.113c0 -3.497 1.553 -6.413 6.017 -6.8z"
+                                fill="#fff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M61.35 0.227l-55.333 4.087C1.553 4.7 0 7.617 0 11.113v60.66c0 2.723 0.967 5.053 3.3 8.167l13.007 16.913c2.137 2.723 4.08 3.307 8.16 3.113l64.257 -3.89c5.433 -0.387 6.99 -2.917 6.99 -7.193V20.64c0 -2.21 -0.873 -2.847 -3.443 -4.733L74.167 3.143c-4.273 -3.107 -6.02 -3.5 -12.817 -2.917zM25.92 19.523c-5.247 0.353 -6.437 0.433 -9.417 -1.99L8.927 11.507c-0.77 -0.78 -0.383 -1.753 1.557 -1.947l53.193 -3.887c4.467 -0.39 6.793 1.167 8.54 2.527l9.123 6.61c0.39 0.197 1.36 1.36 0.193 1.36l-54.933 3.307 -0.68 0.047zM19.803 88.3V30.367c0 -2.53 0.777 -3.697 3.103 -3.893L86 22.78c2.14 -0.193 3.107 1.167 3.107 3.693v57.547c0 2.53 -0.39 4.67 -3.883 4.863l-60.377 3.5c-3.493 0.193 -5.043 -0.97 -5.043 -4.083zm59.6 -54.827c0.387 1.75 0 3.5 -1.75 3.7l-2.91 0.577v42.773c-2.527 1.36 -4.853 2.137 -6.797 2.137 -3.107 0 -3.883 -0.973 -6.21 -3.887l-19.03 -29.94v28.967l6.02 1.363s0 3.5 -4.857 3.5l-13.39 0.777c-0.39 -0.78 0 -2.723 1.357 -3.11l3.497 -0.97v-38.3L30.48 40.667c-0.39 -1.75 0.58 -4.277 3.3 -4.473l14.367 -0.967 19.8 30.327v-26.83l-5.047 -0.58c-0.39 -2.143 1.163 -3.7 3.103 -3.89l13.4 -0.78z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="" data-bs-toggle="dropdown">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="grey"
+                            class="bi bi-gear-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <li><button type="button" class="dropdown-item" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">수정하기</button></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><button type="button" class="dropdown-item text-danger" id="del">삭제하기</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <div class="d-flex flex-row flex-grow-1">
+            <div id="img_bg" class="p-5 text-white w-100" style="background-size: cover; background-position: bottom;">
+                <div>
+                    <h1 style="font-size: 90px;" class="display-4 font-italic">장재혁</h1>
+                    <img src="../IMG/jang_IMG/age.svg" width="48"><span id="age"></span>살<br>
+                    <img src="../IMG/jang_IMG/mbti.svg" width="48"><span id="mbti"></span><br>
+                </div>
+            </div>
+            <div class="container d-flex flex-column fs-4 p-5 my-5">
+                <div class="d-flex flex-column justify-content-around">
+                    <div class="shadow-sm p-3 my-5 rounded-3 bg-body-tertiary">
+                        <div class="flex-row">
+                            <img src="../IMG/jang_IMG/hobby.svg" width="48">
+                            <span class="fw-bold">나의 취미는...</span>
                         </div>
+                        <span id="habit"></span><br>
+                    </div>
+                    <div class="shadow-sm p-3 my-5 rounded-3 bg-body-tertiary">
+                        <div class="flex-row">
+                            <img src="../IMG/jang_IMG/dev.svg" width="48">
+                            <span class="fw-bold">개발에 관심 가지게 된 계기는...</span>
+                        </div>
+                        <span id="comment"></span><br>
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn" onclick="history.back()">뒤로가기</button>
         </div>
 
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">편집</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="m-3">
+                        <div class="mb-3">
+                            <label class="form-label">이름</label>
+                            <input type="text" class="form-control" id="f-name" maxlength="8">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">나이</label>
+                            <input type="number" class="form-control" id="f-age" maxlength="3">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">MBTI</label>
+                            <input type="text" class="form-control" id="f-mbti" maxlength="4">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">대표 동물</label>
+                            <select class="form-select" name="f-animal" id="f-animal">
+                                <option selected value="IMG/cat_img.jpg">고양이</option>
+                                <option value="IMG/raccoon_img.jpg">너구리</option>
+                                <option value="IMG/tiger_img.jpg">호랑이</option>
+                                <option value="IMG/dog_img.jpg">강아지</option>
+                                <option value="IMG/koala_img.jpg">코알라</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">취미</label>
+                            <input type="text" class="form-control" id="f-habit">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">이미지</label>
+                            <input type="text" class="form-control" id="f-img">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">개발을 시작하게 된 계기</label>
+                            <input class="form-control" id="f-comment">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">깃허브 주소</label>
+                            <input type="text" class="form-control" id="f-git_url">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">블로그 주소</label>
+                            <input type="text" class="form-control" id="f-blog_url">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="upd-ok">저장하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- 바디 스크립트 -->
