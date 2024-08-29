@@ -7,123 +7,123 @@
     <title>가빈개인페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script type="module">
-            // Firebase SDK 라이브러리 가져오기
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-            import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { collection, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-            import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-    
-            // Firebase 구성 정보 설정
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyA9zC58RD2rPKiDTqciIhq3qY5b0NtoRPQ",
-                authDomain: "sparta-10d8f.firebaseapp.com",
-                projectId: "sparta-10d8f",
-                storageBucket: "sparta-10d8f.appspot.com",
-                messagingSenderId: "740890493301",
-                appId: "1:740890493301:web:956981f7896ca6c548133c",
-                measurementId: "G-6HR5DY5SVX"
-            };
-    
-            // Firebase 인스턴스 초기화
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-    
-            //저장데이터 불러오기(하나만)
-            //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
-            const docRef = doc(db, "project_01", "https://marshall-ku.tistory.com/134");
-            const docSnap = await getDoc(docRef);
-            let row = docSnap.data();
-    
-            let img = row['img'];
-            let name = row['name'];
-            let age = row['age'];
-            let mbti = row['mbti'];
-            let habit = row['habit'];
-            let blog_url = row['blog_url'];
-            let git_url = row['git_url'];
-            let comment = row['comment'];
-    
-            //read
-            $('#img').append(`<img src="${img}">`);
-            $('#name').append(name);
-            $('#age').append(age);
-            $('#mbti').append(mbti);
-            $('#habit').append(habit);
-            $('#blog_url').append(blog_url);
-            $('#git_url').append(git_url);
-            $('#comment').append(comment);
-    
-            //form value
-            $('#f-img').attr('value', img);
-            $('#f-name').attr('value', name);
-            $('#f-age').attr('value', age);
-            $('#f-mbti').attr('value', mbti);
-            $('#f-habit').attr('value', habit);
-            $('#f-blog_url').attr('value', blog_url);
-            $('#f-git_url').attr('value', git_url);
-            $('#f-comment').attr('value', comment);
-    
-            //수정하기 클릭 시
-            $("#upd").click(async function () {
-                $('#yes').hide();
-                $('#no').css('display', 'flex');
-    
-                $('#upd').hide();
-                $('#del').hide();
-                $('#back-home').hide();
-            })
-    
-            //수정하기>확인 클릭 시
-            $("#upd-ok").click(async function () {
-                let img = $('#f-img').val();
-                let name = $('#f-name').val();
-                let age = $('#f-age').val();
-                let mbti = $('#f-mbti').val();
-                let habit = $('#f-habit').val();
-                let blog_url = $('#f-blog_url').val();
-                let git_url = $('#f-git_url').val();
-                let comment = $('#f-comment').val();
-    
-                let row = {
-                    'img': img,
-                    'name': name,
-                    'age': age,
-                    'mbti': mbti,
-                    'habit': habit,
-                    'blog_url': blog_url,
-                    'git_url': git_url,
-                    'comment': comment,
-                }
-    
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9zC58RD2rPKiDTqciIhq3qY5b0NtoRPQ",
+            authDomain: "sparta-10d8f.firebaseapp.com",
+            projectId: "sparta-10d8f",
+            storageBucket: "sparta-10d8f.appspot.com",
+            messagingSenderId: "740890493301",
+            appId: "1:740890493301:web:956981f7896ca6c548133c",
+            measurementId: "G-6HR5DY5SVX"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        //저장데이터 불러오기(하나만)
+        //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
+        const docRef = doc(db, "project_01", "CxKRM32APntCLrcaK9aP");
+        const docSnap = await getDoc(docRef);
+        let row = docSnap.data();
+
+        let img = row['img'];
+        let name = row['name'];
+        let age = row['age'];
+        let mbti = row['mbti'];
+        let habit = row['habit'];
+        let blog_url = row['blog_url'];
+        let git_url = row['git_url'];
+        let comment = row['comment'];
+
+        //read
+        $('#img').append(`<img src="${img}">`);
+        $('#name').append(name);
+        $('#age').append(age);
+        $('#mbti').append(mbti);
+        $('#habit').append(habit);
+        $('#blog_url').append(blog_url);
+        $('#git_url').append(git_url);
+        $('#comment').append(comment);
+
+        //form value
+        $('#f-img').attr('value', img);
+        $('#f-name').attr('value', name);
+        $('#f-age').attr('value', age);
+        $('#f-mbti').attr('value', mbti);
+        $('#f-habit').attr('value', habit);
+        $('#f-blog_url').attr('value', blog_url);
+        $('#f-git_url').attr('value', git_url);
+        $('#f-comment').attr('value', comment);
+
+        //수정하기 클릭 시
+        $("#upd").click(async function () {
+            $('#yes').hide();
+            $('#no').css('display', 'flex');
+
+            $('#upd').hide();
+            $('#del').hide();
+            $('#back-home').hide();
+        })
+
+        //수정하기>확인 클릭 시
+        $("#upd-ok").click(async function () {
+            let img = $('#f-img').val();
+            let name = $('#f-name').val();
+            let age = $('#f-age').val();
+            let mbti = $('#f-mbti').val();
+            let habit = $('#f-habit').val();
+            let blog_url = $('#f-blog_url').val();
+            let git_url = $('#f-git_url').val();
+            let comment = $('#f-comment').val();
+
+            let row = {
+                'img': img,
+                'name': name,
+                'age': age,
+                'mbti': mbti,
+                'habit': habit,
+                'blog_url': blog_url,
+                'git_url': git_url,
+                'comment': comment,
+            }
+
+            //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
+            await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
+            window.location.reload();
+        })
+
+        //수정하기>취소 클릭 시
+        $("#upd-no").click(async function () {
+            window.location.reload();
+        })
+
+        //삭제하기 클릭시
+        $("#del").click(async function () {
+            var answer = confirm("정말 삭제하시겠습니까?");
+
+            if (answer) {
                 //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
-                window.location.reload();
-            })
-    
-            //수정하기>취소 클릭 시
-            $("#upd-no").click(async function () {
-                window.location.reload();
-            })
-    
-            //삭제하기 클릭시
-            $("#del").click(async function () {
-                var answer = confirm("정말 삭제하시겠습니까?");
-    
-                if (answer) {
-                    //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                    await deleteDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'));
-                    window.location.href = '../index.html';
-                }
-            })
-    
-            //홈으로 돌아가기 클릭시
-            $("#back-home").click(async function () {
+                await deleteDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'));
                 window.location.href = '../index.html';
-            })
-    
-        </script>
+            }
+        })
+
+        //홈으로 돌아가기 클릭시
+        $("#back-home").click(async function () {
+            window.location.href = '../index.html';
+        })
+
+    </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Hahmlet:wght@100..900&family=Nanum+Pen+Script&display=swap');
 
@@ -223,30 +223,33 @@
                         <div class="card-body">
                             <h5 class="card-title">평화를 사랑하며 모두와 잘 어울리는 성격좋은 중재자형</h5>
                             <div class="container-fluid">
-                                <a class="navbar-brand" style="margin-right: 0px;" href="https://github.com/gabeen-dev" target="_blank">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
-                                        class="d-inline-block">
+                                <a class="navbar-brand" style="margin-right: 0px;" href='#' id="git_url"
+                                    target="_blank">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo"
+                                        width="30" height="30" class="d-inline-block">
                                 </a>
-                                <a class="navbar-brand" href="https://velog.io/@dumbo" target="_blank">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459" width="30" height="30" >
-                                            <title>티스토리 로고</title><g>
-                                                <path d="M229.5,0C102.75,0,0,102.75,0,229.5S102.75,459,229.5,459,459,356.25,459,229.5,356.25,0,229.5,0ZM130.21,191.45a39.57,39.57,0,1,1,39.56-39.57A39.58,39.58,0,0,1,130.21,191.45ZM229.5,390a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,390Zm0-99.29a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,290.74Zm0-99.29a39.57,39.57,0,1,1,39.56-39.57A39.57,39.57,0,0,1,229.5,191.45Zm99.29,0a39.57,39.57,0,1,1,39.57-39.57A39.57,39.57,0,0,1,328.79,191.45Z"/></g></svg>
+                                <a class="navbar-brand" href='#' id="blog_url" target="_blank">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 459 459" width="30"
+                                        height="30">
+                                        <title>티스토리 로고</title>
+                                        <g>
+                                            <path
+                                                d="M229.5,0C102.75,0,0,102.75,0,229.5S102.75,459,229.5,459,459,356.25,459,229.5,356.25,0,229.5,0ZM130.21,191.45a39.57,39.57,0,1,1,39.56-39.57A39.58,39.58,0,0,1,130.21,191.45ZM229.5,390a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,390Zm0-99.29a39.56,39.56,0,1,1,39.56-39.56A39.56,39.56,0,0,1,229.5,290.74Zm0-99.29a39.57,39.57,0,1,1,39.56-39.57A39.57,39.57,0,0,1,229.5,191.45Zm99.29,0a39.57,39.57,0,1,1,39.57-39.57A39.57,39.57,0,0,1,328.79,191.45Z" />
+                                        </g>
+                                    </svg>
                                 </a>
                             </div>
                             <p class="card-text">
-                                MBTI : <span id="age"></span><br>
-                                나이: 31<br>
-                                
-                                블로그: https://lizzy1221.tistory.com/<br>
-                                깃허브: https://github.com/gabeen-dev<br>
-
-                                
-                            <p class="card-text"><small class="text-body-secondary">안녕하세요! 개발을 처음 시작하는 개린이 입니다.<br>
-                                저는 개발과 전혀 상관없는 삶을 살다 개발에 흥미가 있었던 차에 주변의 귄유로 시작하게 되었습니다.(주변에 아는 개발자 한명씩은 있잖아요...???><)
-                                모든게 처음이지만 저의 강점과 노력으로 캠프를 끝까지 달려보려 합니다! 모두 화이팅!!!!<br>
-                                <br>
-                                객관적으로 살펴본 자신의 장점: 침착하고 인내심이 있습니다.<br>
-                                자신의 협업 스타일: 수용적이며 맡겨진 일을 성실하게 수행합니다. <br>
+                                MBTI : <span id="mbti"></span>
+                                나이: <span id="age"></span>
+                                취미: <span id="habit"></span>
+                            <p class="card-text" id="comment"><small class="text-body-secondary">안녕하세요! 개발을 처음 시작하는 개린이
+                                    입니다.<br>
+                                    저는 개발과 전혀 상관없는 삶을 살다 개발에 흥미가 있었던 차에 주변의 귄유로 시작하게 되었습니다.(주변에 아는 개발자 한명씩은 있잖아요...???>
+                                    <) 모든게 처음이지만 저의 강점과 노력으로 캠프를 끝까지 달려보려 합니다! 모두 화이팅!!!!<br>
+                                        <br>
+                                        객관적으로 살펴본 자신의 장점: 침착하고 인내심이 있습니다.<br>
+                                        자신의 협업 스타일: 수용적이며 맡겨진 일을 성실하게 수행합니다. <br>
                             </p></small></p>
                         </div>
                     </div>
@@ -255,8 +258,9 @@
 
 
             <div class="mybtn">
-                </button><button type="button" class="btn btn-warning">등록하기</button><button type="button"
-                    class="btn btn-outline-warning">취소하기
+                <button type="button" class="btn btn-outline-warning">수정</button><button type="button"
+                    class="btn btn-outline-warning">삭제 </button><button type="button"
+                    class="btn btn-outline-warning">홈으로
             </div>
         </div>
 
