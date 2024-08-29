@@ -17,6 +17,15 @@ const firebaseConfig = {
     measurementId: "G-6HR5DY5SVX"
 };
 
+//파일 경로를 넣으면, 서버 안에 존재하는 지 true/false로 반환함.
+function doesFileExist(urlToFile)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', urlToFile, false);
+    xhr.send();
+    return xhr.status != "404";
+}
+
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -28,12 +37,19 @@ document.getElementById('profile_card_template').remove()
 let docs = await getDocs(collection(db, "project_01"));
 docs.forEach((doc) => {
     let row = doc.data();
-
+    let key =doc.id;
     let name = row['name'];
     let animal = row['animal'];
     let animal_text = row['animal_text'];
 
-    let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='sub/${name}.html'">
+    let link = "";
+    if (doesFileExist(`sub/${key}.html`)) {
+        link = `sub/${key}.html`;
+    } else {
+        link = `sub/sub_page.html?id=${key}`;
+    }
+
+    let profile_card = `<div class="d-inline-flex card border-0" style="width: 200px;" onclick="location.href='${link}'">
                     <h3 class="m-2 text-center">${name}</h3>
                     <img class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;" src="${animal}">
                     <p class="p-2 bg-body-tertiary">${animal_text}</p>
