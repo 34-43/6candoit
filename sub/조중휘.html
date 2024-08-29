@@ -50,9 +50,24 @@
         let git_url = row['git_url'];
         let comment = row['comment'];
 
+        let bootstrap_git = `
+        <a class="navbar-brand" href="${git_url}" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
+                class="d-inline-block">
+                Github
+        </a>`
+
+        let bootstrap_blog = `
+            <a class="navbar-brand" href="${blog_url}" target="_blank">
+                <img src="https://images.velog.io/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png"
+                    alt="Logo" width="30" height="30" class="d-inline-block">
+                    Velog
+            </a>`
+
         //read
         $('#img').append(`<img src="${img}">`);
-        //$('#git_url').append(`<a class="navbar-brand" href="${git_url}"_blank">`);
+        $('#bootstrap_git').append(bootstrap_git);
+        $('#bootstrap_blog').append(bootstrap_blog);
         $('#name').append(name);
         $('#age').append(age);
         $('#mbti').append(mbti);
@@ -229,21 +244,11 @@
 <body>
     <header class="p-3 text-bg-dark">
         <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <!--질문 : 데이터베이스로 받은 깃허브 주소를 받아 넣고싶습니다-->
-                <a class="navbar-brand" href="https://github.com/Jojoonghwi" target="_blank">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
-                        class="d-inline-block">
-                    Github
-                </a>
+
+            <div id="bootstrap_git" class="container-fluid">
             </div>
 
-            <div class="container-fluid">
-                <a class="navbar-brand" href="https://velog.io/@dumbo" target="_blank">
-                    <img src="https://images.velog.io/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png"
-                        alt="Logo" width="30" height="30" class="d-inline-block">
-                    Velog
-                </a>
+            <div id="bootstrap_blog" class="container-fluid">
             </div>
 
             <div class="container-fluid">
