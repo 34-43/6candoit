@@ -18,6 +18,18 @@
             font-size: 18px;
         }
 
+        .wrap>img {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+        .ham01 {left:150px; top:300px;}
+        .ham02 {left:1600px; top:300px;}
+        .ham03 {left:150px; top:500px;}
+        .ham04 {left:1600px; top:500px;}
+        .ham05 {left:150px; top:700px;}
+        .ham06 {left:1600px; top:700px;}
+
         .intro {
             width: 600px;
             height: 150px;
@@ -62,7 +74,7 @@
             margin: 50px auto;
             border-radius: 10px;
             background-color: rgba(235, 235, 235, 0.897);
-            background-image: url(../IMG/background_img.jpg);
+            background-image: url(../IMG/kjh_IMG/background_img.jpg);
         }
 
         .main-co {
@@ -95,7 +107,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-
         }
 
         .c-text {
@@ -145,55 +156,62 @@
         <p class="intro-text">당신의 햄스터. 술떡으로 대체되었다</p>
     </div>
 
-    
 
-    <div class="content">
-        <div class="main-co" id="yes">
-            <div class="c-image" id="img"></div>
-            <div class="c-text">
-                <span>나이</span>
-                <p id="age"></p>
-                <span>MBTI</span>
-                <p id="mbti"></p>
-                <span>취미</span>
-                <p id="habit"></p>
-                <span>개발을 시작하게 된 계기</span>
-                <p id="comment"></p>
-                <span>블로그</span>
-                <p id="blog_url"></p>
-                <span>깃허브</span>
-                <p id="git_url"></p>
-            </div>
-        </div>
-        <div class="main-form" id="no">
-            <div class="f-text">
-                <span>이름: </span>
-                <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
-                <span>&emsp;나이: </span>
-                <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
-                <span>MBTI: </span>
-                <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
-                <span>&emsp;취미: </span>
-                <input type="text" id="f-habit" placeholder="취미"><br><br>
-                <span>이미지: </span>
-                <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
-                <span>개발을 시작하게 된 계기: </span>
-                <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
-                <span>블로그: </span>
-                <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
-                <span>깃허브: </span>
-                <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
-                <div class="f-btn-co">
-                    <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
-                    <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+    <div class="wrap">
+        <img class="ham01" id="ham01" src="../IMG/kjh_IMG/ham01_img.png">
+        <img class="ham02" id="ham02" src="../IMG/kjh_IMG/ham02_img.png">
+        <img class="ham03" id="ham03" src="../IMG/kjh_IMG/ham03_img.png">
+        <img class="ham04" id="ham04" src="../IMG/kjh_IMG/ham04_img.png">
+        <img class="ham05" id="ham05" src="../IMG/kjh_IMG/ham05_img.png">
+        <img class="ham06" id="ham06"src="../IMG/kjh_IMG/ham06_img.png">
+        <div class="content">
+            <div class="main-co" id="yes">
+                <div class="c-image" id="img"></div>
+                <div class="c-text">
+                    <span>나이</span>
+                    <p id="age"></p>
+                    <span>MBTI</span>
+                    <p id="mbti"></p>
+                    <span>취미</span>
+                    <p id="habit"></p>
+                    <span>개발을 시작하게 된 계기</span>
+                    <p id="comment"></p>
+                    <span>블로그</span>
+                    <p><a id="blog_url" href=""></a></p>
+                    <span>깃허브</span>
+                    <p><a id="git_url" href=""></a></p>
                 </div>
             </div>
-        </div>
+            <div class="main-form" id="no">
+                <div class="f-text">
+                    <span>이름: </span>
+                    <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
+                    <span>&emsp;나이: </span>
+                    <input type="text" id="f-age" placeholder="나이" size="3" maxlength="2"><br><br>
+                    <span>MBTI: </span>
+                    <input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
+                    <span>&emsp;취미: </span>
+                    <input type="text" id="f-habit" placeholder="취미"><br><br>
+                    <span>이미지: </span>
+                    <input type="url" id="f-img" placeholder="이미지 url" size="50"><br><br>
+                    <span>개발을 시작하게 된 계기: </span>
+                    <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60"><br><br>
+                    <span>블로그: </span>
+                    <input type="url" id="f-blog_url" placeholder="블로그 url" size="40"><br><br>
+                    <span>깃허브: </span>
+                    <input type="url" id="f-git_url" placeholder="깃허브 url" size="40"><br><br>
+                    <div class="f-btn-co">
+                        <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
+                        <button type="button" class="btn btn-warning" id="upd-no">취소</button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="btn-co">
-            <button type="button" class="btn btn-primary" id="back-home">홈으로 돌아가기</button>
-            <button type="button" class="btn btn-warning" id="upd">수정하기</button>
-            <button type="button" class="btn btn-danger" id="del">삭제하기</button>
+            <div class="btn-co">
+                <button type="button" class="btn btn-primary" id="back-home">홈으로 돌아가기</button>
+                <button type="button" class="btn btn-warning" id="upd">수정하기</button>
+                <button type="button" class="btn btn-danger" id="del">삭제하기</button>
+            </div>
         </div>
     </div>
 </body>
