@@ -84,13 +84,20 @@
             margin-right: 5px;
             font-size: 22px;
         }
+
+
+        .f-btn-co {
+            width: 200px;
+            position: relative;
+            left: 800px;
+        }
     </style>
 
 </head>
 
 <body>
     <div class="myname">
-        <h1 class="intro-name" ></h1>
+        <h1 class="intro-name"></h1>
         <div class="box" style="background: #BDBDBD;">
             <img class="profile" src="../IMG/koala_img.jpg">
         </div>
@@ -124,24 +131,26 @@
                                     </svg>
                                 </a>
                             </div>
-                            <p class="card-text">
+                            <div class="card-text" id="yes">
                                 이름:<span id="name"></span>
                                 MBTI:<span id="mbti"></span>
                                 나이:<span id="age"></span>
                                 취미:<span id="habit"></span>
-                            <p class="card-text" id="comment">안녕하세요! 개발을 처음 시작하는 개린이 입니다.<br>
-                                <small class="text-body-secondary"><br>
-                                    객관적으로 살펴본 자신의 장점: 침착하고 인내심이 있습니다.<br>
-                                    자신의 협업 스타일: 수용적이며 맡겨진 일을 성실하게 수행합니다. <br>
-                            </p></small></p>
+                                <p class="card-text" id="comment">안녕하세요! 개발을 처음 시작하는 개린이 입니다.<br>
+                                    <small class="text-body-secondary"><br>
+                                        객관적으로 살펴본 자신의 장점: 침착하고 인내심이 있습니다.<br>
+                                        자신의 협업 스타일: 수용적이며 맡겨진 일을 성실하게 수행합니다. <br>
+                                </p></small>
+                            </div>
+                        
                         </div>
                     </div>
                 </div>
             </div>
             <div class="mybtn">
-                <button type="button" class="btn btn-outline-warning">수정</button>
-                <button type="button" class="btn btn-outline-warning">삭제</button>
-                <button type="button" class="btn btn-outline-warning">홈</button>
+                <button type="button" class="btn btn-outline-warning" id="upd">수정</button>
+                <button type="button" class="btn btn-outline-warning" id="del">삭제</button>
+                <button type="button" class="btn btn-outline-warning" id="back-home">홈</button>
 
             </div>
 
