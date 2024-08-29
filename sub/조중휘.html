@@ -37,7 +37,7 @@
 
         //저장데이터 불러오기(하나만)
         //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
-        const docRef = doc(db, "project_01", "yGHZb3s5nCzCmLhQEaB5");
+        const docRef = doc(db, "project_01", "조중휘");
         const docSnap = await getDoc(docRef);
         let row = docSnap.data();
 
@@ -72,8 +72,8 @@
         $('#age').append(age);
         $('#mbti').append(mbti);
         $('#habit').append(habit);
-        $('#blog_url').append(blog_url);
-        $('#git_url').append(git_url);
+        //$('#blog_url').append(blog_url);
+        //$('#git_url').append(git_url);
         $('#comment').append(comment);
 
         //form value
@@ -121,7 +121,7 @@
             }
 
             //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-            await updateDoc(doc(db, 'project_01', 'yGHZb3s5nCzCmLhQEaB5'), row);
+            await updateDoc(doc(db, 'project_01', '조중휘'), row);
             window.location.reload();
         })
 
@@ -136,7 +136,7 @@
 
             if (answer) {
                 //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                await deleteDoc(doc(db, 'project_01', 'yGHZb3s5nCzCmLhQEaB5'));
+                await deleteDoc(doc(db, 'project_01', '조중휘'));
                 window.location.href = '../index.html';
             }
         })
@@ -156,12 +156,17 @@
             font-style: normal;
         }
 
-        h3 {
-            color: orange;
+        h2 {
+            color: rgb(244,97,40);;
+        }
+
+        h1, h3, h5{
+            color: black;
         }
 
         body {
-            background-color: gray
+            background-color: rgb(255, 235, 226);
+
         }
 
         .introduction {
@@ -219,7 +224,7 @@
 
         .f-btn-co {
             width: 200px;
-            position: relative;
+            position: center;
             left: 800px;
         }
 
@@ -231,12 +236,15 @@
         }
 
         .main-form {
-            width: 1200px;
-            height: 570px;
+            width: 800px;
+            height: 450px;
             padding: 50px;
             display: none;
+            margin: auto auto 100px 400px;
             justify-content: center;
-            background-size: auto;
+
+            background-color: rgb(255, 235, 226);
+            border:5px groove;
         }
     </style>
 </head>
@@ -272,25 +280,25 @@
         </div>
 
         <div class="information">
-            <h3>내 정보</h3>
-            <h2 id="age">나이 : </h2>
-            <h2 id="mbti">MBTI : </h2>
-            <h2 id="habit">취미 : </h2>
+            <h2>내 정보</h2>
+            <h3 id="age">나이 : </h3>
+            <h3 id="mbti">MBTI : </h3>
+            <h3 id="habit">취미 : </h3>
         </div>
 
         <div class="information1">
-            <h3>개발을 시작한 계기</h3>
-            <h2 id="comment"></h2>
+            <h2>개발을 시작한 계기</h2>
+            <h3 id="comment"></h3>
         </div>
 
         <div class="information2">
-            <h3>장점</h3>
-            <h2>책임감이 강하여 맡은 임무를 잘 수행합니다</h2>
+            <h2>장점</h2>
+            <h3>책임감이 강하여 맡은 임무를 잘 수행합니다</h3>
         </div>
 
         <div class="information3">
-            <h3>각오 한마디</h3>
-            <h2>4개월간 힘들겠지만 취업을 위해 파이팅입니다!</h2>
+            <h2>각오 한마디</h2>
+            <h3>4개월간 힘들겠지만 취업을 위해 파이팅입니다!</h3>
         </div>
 
         <div class="btn-co">
