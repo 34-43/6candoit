@@ -45,6 +45,7 @@ let comment = row['comment'];
 
 //read
 $('#img').append(`<img src="${img}">`);
+$('#img_sized_500').append(`<img src="${img}" width=500, height=500 >`);
 $('#name').append(name);
 $('#age').append(age);
 $('#mbti').append(mbti);
