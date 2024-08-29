@@ -32,7 +32,7 @@
 
         //저장데이터 불러오기(하나만)
         //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
-        const docRef = doc(db, "project_01", "Ov0Z5ToRphy3zOLEilBr");
+        const docRef = doc(db, "project_01", "XKi16iyohV7ztJXJfuap");
         const docSnap = await getDoc(docRef);
         let row = docSnap.data();
 
@@ -98,7 +98,7 @@
             }
 
             //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-            await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
+            await updateDoc(doc(db, 'project_01', 'XKi16iyohV7ztJXJfuap'), row);
             window.location.reload();
         })
 
@@ -113,7 +113,7 @@
 
             if (answer) {
                 //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                await deleteDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'));
+                await deleteDoc(doc(db, 'project_01', 'XKi16iyohV7ztJXJfuap'));
                 window.location.href = '../index.html';
             }
         })
@@ -178,6 +178,7 @@
             margin: 50px auto;
             border-radius: 10px;
             background-color: rgba(235, 235, 235, 0.897);
+            background-image: url(../IMG/background_img.jpg);
         }
 
         .main-co {
@@ -259,6 +260,8 @@
         <p class="intro-name" id="name"></p>
         <p class="intro-text">당신의 햄스터. 술떡으로 대체되었다</p>
     </div>
+
+    
 
     <div class="content">
         <div class="main-co" id="yes">

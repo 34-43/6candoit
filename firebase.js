@@ -2,7 +2,7 @@
 // Firebase SDK 라이브러리 가져오기
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { collection, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // Firebase 구성 정보 설정
@@ -74,7 +74,9 @@ $("#make-ok").click(async function () {
         'comment': comment,
     }
     console.log(row);
-    await addDoc(collection(db, "project_01"), row);
+    await setDoc(doc(db, "project_01", name), row);
+    //await addDoc(collection(db, "project_01"), row);
+
     alert('저장 완료!');
     window.location.reload();//새로고침
 })
