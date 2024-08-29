@@ -67,6 +67,10 @@
             border-radius: 5px;
         }
 
+        .one-line {
+            display: inline;
+        }
+
         .mybtn {
 
             flex-direction: row;
@@ -128,10 +132,10 @@
                             </div>
                             
                             <div class="card-text" id="yes">
-                                이름:<span id="name"></span>
-                                MBTI:<span id="mbti"></span>
-                                나이:<span id="age"></span>
-                                취미:<span id="habit"></span>
+                               <span class="one-line">이름:</span><span class="one-line" id="name"></span><br>
+                               <span class="one-line">MBTI:</span><span class="one-line" id="mbti"></span><br>
+                               <span class="one-line">나이:</span><span class="one-line" id="age"></span><br>
+                               <span class="one-line">취미:</span><span class="one-line" id="habit"></span><br>
                                 개발을 시작하게 된 계기:
                                 <p class="card-text" id="comment"></p>
                             </div>
@@ -163,27 +167,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!--
-                                  <div class="card-text" id="no">
-                                    이름: <input type="text" id="f-name" placeholder="이름" size="10" maxlength="8">
-                                    MBTI:<input type="text" id="f-mbti" placeholder="MBTI" size="3" maxlength="4">
-                                    나이:<input type="text" id="f-age" placeholder="나이" size="3" maxlength="2">
-                                    취미:<input type="text" id="f-habit" placeholder="취미">
-                                    이미지 url:
-                                    <p class="card-text">개발을 시작하게 된 계기:<br>
-                                        <input type="text" id="f-comment" placeholder="개발을 시작하게 된 계기" size="60">
-                                    </p>
-    
-                                    <div class="f-btn-co">
-                                        <button type="button" class="btn btn-warning" id="upd-ok">확인</button>
-                                        <button type="button" class="btn btn-warning" id="upd-no">취소</button>
-                                    </div>
-                                </div>
-                                
-                                -->
-                              
-
                             </div>
                            
                         </div>
@@ -194,7 +177,6 @@
                 <button type="button" class="btn btn-outline-warning" id="upd">수정</button>
                 <button type="button" class="btn btn-outline-warning" id="del">삭제</button>
                 <button type="button" class="btn btn-outline-warning" id="back-home">홈</button>
-
             </div>
 
         </div>
