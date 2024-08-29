@@ -31,8 +31,7 @@
         const db = getFirestore(app);
 
         //저장데이터 불러오기(하나만)
-        //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
-        const docRef = doc(db, "project_01", "XKi16iyohV7ztJXJfuap");
+        const docRef = doc(db, "project_01", '김지혜');
         const docSnap = await getDoc(docRef);
         let row = docSnap.data();
 
@@ -97,8 +96,7 @@
                 'comment': comment,
             }
 
-            //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-            await updateDoc(doc(db, 'project_01', 'XKi16iyohV7ztJXJfuap'), row);
+            await updateDoc(doc(db, 'project_01', name), row);
             window.location.reload();
         })
 
@@ -113,7 +111,7 @@
 
             if (answer) {
                 //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                await deleteDoc(doc(db, 'project_01', 'XKi16iyohV7ztJXJfuap'));
+                await deleteDoc(doc(db, 'project_01', '김지혜'));
                 window.location.href = '../index.html';
             }
         })
