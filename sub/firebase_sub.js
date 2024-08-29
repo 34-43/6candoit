@@ -43,9 +43,25 @@ let blog_url = row['blog_url'];
 let git_url = row['git_url'];
 let comment = row['comment'];
 
+let bootstrap_git = `
+<a class="navbar-brand" href="${git_url}" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175377.png" alt="Logo" width="30" height="30"
+        class="d-inline-block">
+        Github
+</a>`
+
+let bootstrap_blog = `
+    <a class="navbar-brand" href="${blog_url}" target="_blank">
+        <img src="https://images.velog.io/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png"
+            alt="Logo" width="30" height="30" class="d-inline-block">
+            Velog
+    </a>`
+
 //read
 $('#img').append(`<img src="${img}">`);
 $('#img_sized_500').append(`<img src="${img}" width=500, height=500 >`); //현우님 룰
+$('#bootstrap_git').append(bootstrap_git); //중휘님 룰
+$('#bootstrap_blog').append(bootstrap_blog); //중휘님 룰
 $('#name').append(name);
 $('#age').append(age);
 $('#mbti').append(mbti);
@@ -65,6 +81,8 @@ $('#f-habit').attr('value', habit);
 $('#f-blog_url').attr('value', blog_url);
 $('#f-git_url').attr('value', git_url);
 $('#f-comment').attr('value', comment);
+
+$('#no').hide();
 
 //수정하기 클릭 시
 $("#upd").click(async function () {
