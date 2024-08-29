@@ -91,7 +91,6 @@ $("#make-ok").click(async function () {
     }
     console.log(row);
     await setDoc(doc(db, "project_01", name), row);
-    //await addDoc(collection(db, "project_01"), row);
 
     alert('저장 완료!');
     window.location.reload();//새로고침
