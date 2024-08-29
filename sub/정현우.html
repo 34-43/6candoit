@@ -27,12 +27,13 @@
         };
 
         // Firebase 인스턴스 초기화
+        let doc_id = "o9jXbg9suDYnnAR5fbE6";
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
         //저장데이터 불러오기(하나만)
         //자신에게 해당하는 데이터의 아이디를 project_01 뒤에 넣습니다.
-        const docRef = doc(db, "project_01", "Ov0Z5ToRphy3zOLEilBr");
+        const docRef = doc(db, "project_01", doc_id);
         const docSnap = await getDoc(docRef);
         let row = docSnap.data();
 
@@ -98,7 +99,7 @@
             }
 
             //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-            await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
+            await updateDoc(doc(db, 'project_01', doc_id), row);
             window.location.reload();
         })
 
@@ -113,7 +114,7 @@
 
             if (answer) {
                 //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-                await deleteDoc(doc(db, 'project_01', 'o9jXbg9suDYnnAR5fbE6'));
+                await deleteDoc(doc(db, 'project_01', doc_id));
                 window.location.href = '../index.html';
             }
         })
@@ -131,9 +132,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
         * {
-                font-family: "Jua", sans-serif;
-                font-weight: 400;
-                font-style: normal;
+            font-family: "Jua", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .mytitle {
@@ -160,7 +161,12 @@
             margin: 20px 20px 20px auto;
             background-color: transparent;
             border-radius: 10px;
-        } 
+        }
+        .btn-co {
+            width: 1200px;
+            position: relative;
+            left: 800px;
+        }
     </style>
 
 </head>
@@ -173,7 +179,7 @@
     <div class="image">
         <div id="card" class="row row-cols-1 row-cols-md-2 g-2">
             <div class="col1">
-                <div id="img" class="card" style="align-items: center">
+                <div id="img" class="card" style="align-items: center;">
                     <!-- <img src="https://dareumdaroom.com/wp-content/uploads/2024/01/%EA%B0%95%EC%95%84%EC%A7%80%EC%9B%90-1024x1024-optimized.png"
                         height="500" , width="500"> -->
                 </div>
@@ -205,8 +211,12 @@
                     </div>
                 </div>
             </div>
+            <div class="btn-co">
+                <button type="button" class="btn btn-primary" id="back-home">홈으로 돌아가기</button>
+                <button type="button" class="btn btn-warning" id="upd">수정하기</button>
+                <button type="button" class="btn btn-danger" id="del">삭제하기</button>
+            </div>
 
-            <button class="mybtn" type="button" class="btn btn-outline-success">뒤로가기</button>
         </div>
 
 </body>
