@@ -141,3 +141,49 @@ $("#del").click(async function () {
 $("#back-home").click(async function () {
     window.location.href = '../index.html';
 })
+
+//kjh 개인적인 script
+
+//햄스터 hover
+$("#ham01").hover(async function () {
+    $("#ham01").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham01").css('rotate', "270deg");
+},async function () {
+    $("#ham01").attr('src', "../IMG/kjh_IMG/ham01_img.png");
+    $("#ham01").css('rotate', "0deg");
+})
+$("#ham02").hover(async function () {
+    $("#ham02").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham02").css('rotate', "270deg");
+},async function () {
+    $("#ham02").attr('src', "../IMG/kjh_IMG/ham02_img.png");
+    $("#ham02").css('rotate', "0deg");
+})
+$("#ham03").hover(async function () {
+    $("#ham03").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham03").css('rotate', "270deg");
+},async function () {
+    $("#ham03").attr('src', "../IMG/kjh_IMG/ham03_img.png");
+    $("#ham03").css('rotate', "0deg");
+})
+$("#ham04").hover(async function () {
+    $("#ham04").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham04").css('rotate', "270deg");
+},async function () {
+    $("#ham04").attr('src', "../IMG/kjh_IMG/ham04_img.png");
+    $("#ham04").css('rotate', "0deg");
+})
+$("#ham05").hover(async function () {
+    $("#ham05").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham05").css('rotate', "270deg");
+},async function () {
+    $("#ham05").attr('src', "../IMG/kjh_IMG/ham05_img.png");
+    $("#ham05").css('rotate', "0deg");
+})
+$("#ham06").hover(async function () {
+    $("#ham06").attr('src', "../IMG/kjh_IMG/dduck.png");
+    $("#ham06").css('rotate', "270deg");
+},async function () {
+    $("#ham06").attr('src', "../IMG/kjh_IMG/ham06_img.png");
+    $("#ham06").css('rotate', "0deg");
+})
