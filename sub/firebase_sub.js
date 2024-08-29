@@ -99,7 +99,7 @@ $("#upd-ok").click(async function () {
     }
 
     //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-    await updateDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'), row);
+    await updateDoc(doc(db, 'project_01', parsedId), row);
     window.location.reload();
 })
 
@@ -114,7 +114,7 @@ $("#del").click(async function () {
 
     if (answer) {
         //자신에게 해당하는 데이터의 아이디를 project_01과 row사이에 넣습니다.
-        await deleteDoc(doc(db, 'project_01', 'Ov0Z5ToRphy3zOLEilBr'));
+        await deleteDoc(doc(db, 'project_01', parsedId));
         window.location.href = '../index.html';
     }
 })
