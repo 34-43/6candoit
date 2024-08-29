@@ -45,15 +45,15 @@ let comment = row['comment'];
 
 //read
 $('#img').append(`<img src="${img}">`);
-$('#img_sized_500').append(`<img src="${img}" width=500, height=500 >`);
+$('#img_sized_500').append(`<img src="${img}" width=500, height=500 >`); //현우님 룰
 $('#name').append(name);
 $('#age').append(age);
 $('#mbti').append(mbti);
 $('#habit').append(habit);
 $('#blog_url').append(blog_url);
+$('#blog_url').prop('href',blog_url); //재혁, 가빈님 룰
 $('#git_url').append(git_url);
-$('#blog_anchor').prop('href',blog_url); //a 태그를 사용할 때
-$('#git_anchor').prop('href',git_url); //a 태그를 사용할 때
+$('#git_url').prop('href',git_url); //재혁, 가빈님 룰
 $('#comment').append(comment);
 
 //form value
