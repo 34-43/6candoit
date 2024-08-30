@@ -1,5 +1,5 @@
 # 6candoit
-
+![image](https://github.com/user-attachments/assets/c8476110-04df-4a56-bec9-6042e5c6cf92)
 [Vercel 배포 주소](https://6-candoit.vercel.app)
 
 ## Spring_3기 미니프로젝트
